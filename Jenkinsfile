@@ -17,11 +17,16 @@ pipeline {
        stage('EKS-Deploy') {
         steps{   
             script {
-                withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'EKS', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
-                sh ('kubectl apply -f  eks-deploy-k8s.yaml')
+		    withKubeConfig(
+			    credentialsId: 'EKS',
+			    clusterName: 'java-python-cluster',
+			    contextName: 'arn:aws:eks:ap-south-1:637423572777:cluster/java-python-cluster',
+			    serverUrl: 'https://12FB5133E5192CF9F1F405C968089526.yl4.ap-south-1.eks.amazonaws.com'
+		    ) {
+			    sh ('kubectl apply -f eks-deploy-k8s.yaml')
+		    }
                 }
             }
         }
        }
     }
-}
