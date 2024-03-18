@@ -3,9 +3,9 @@ kind: Deployment
 metadata:
   labels:
     app: flask-app
-  name: flask-app-deployment
+  name: flask-app
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: flask-app
@@ -15,7 +15,7 @@ spec:
         app: flask-app
     spec:
       containers:
-      - name: flask-app-container
+      - name: my-flask-app
         image: 637423572777.dkr.ecr.ap-south-1.amazonaws.com/eks-jenkins-repo:latest
         imagePullPolicy: Always
         ports:
@@ -30,7 +30,7 @@ metadata:
   labels:
     app: flask-app
     k8s-app: flask-app
-  name: flask-app-service
+  name: flask-app
 spec:
   ports:
   - name: http
