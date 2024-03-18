@@ -14,7 +14,7 @@ pipeline {
         }
    
 
-       stage('EKS Deploy') {
+       stage('EKS-Deploy') {
         steps{   
             script {
                 withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'EKS', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
