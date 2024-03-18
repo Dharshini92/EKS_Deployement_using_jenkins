@@ -1,5 +1,8 @@
 pipeline {
     agent any
+     environment {
+        registry = "637423572777.dkr.ecr.us-east-1.amazonaws.com/eks-jenkins-repo"
+    }
     stages {
     // Building Docker images
         stage('ECR push') {
