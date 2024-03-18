@@ -14,7 +14,7 @@ pipeline {
         }
    
 
-       stage('K8S Deploy') {
+       stage('EKS Deploy') {
         steps{   
             script {
                 withKubeConfig([credentialsId: 'K8S', serverUrl: '']) {
